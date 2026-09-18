@@ -1,0 +1,54 @@
+{
+  "id": "bfs",
+  "title": "Breadth-First Search Order",
+  "description": "Given an adjacency-list graph (dict of node -> list of neighbors) and a start node, return the BFS visit order. Neighbors are explored in the order listed.",
+  "function_name": "bfs",
+  "signature": "def bfs(graph: dict[str, list[str]], start: str) -> list[str]",
+  "constraints": [
+    "Graph is unweighted",
+    "Nodes are strings",
+    "Start exists in the graph"
+  ],
+  "timeout_seconds": 2.0,
+  "expected_output_format": "List of node ids in BFS order",
+  "visible_tests": [
+    {
+      "id": "v1",
+      "description": "Simple chain",
+      "args": [{"A": ["B"], "B": ["C"], "C": []}, "A"],
+      "kwargs": {},
+      "expected": ["A", "B", "C"],
+      "is_edge_case": false,
+      "performance_weight": 0
+    },
+    {
+      "id": "v2",
+      "description": "Branching",
+      "args": [{"A": ["B", "C"], "B": ["D"], "C": ["D"], "D": []}, "A"],
+      "kwargs": {},
+      "expected": ["A", "B", "C", "D"],
+      "is_edge_case": false,
+      "performance_weight": 0
+    }
+  ],
+  "hidden_tests": [
+    {
+      "id": "h1",
+      "description": "Single node",
+      "args": [{"X": []}, "X"],
+      "kwargs": {},
+      "expected": ["X"],
+      "is_edge_case": true,
+      "performance_weight": 0
+    },
+    {
+      "id": "h2",
+      "description": "Diamond",
+      "args": [{"A": ["B", "C"], "B": ["D"], "C": ["D"], "D": ["E"], "E": []}, "A"],
+      "kwargs": {},
+      "expected": ["A", "B", "C", "D", "E"],
+      "is_edge_case": false,
+      "performance_weight": 1
+    }
+  ]
+}

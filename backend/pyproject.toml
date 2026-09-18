@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codetrace"
+version = "0.1.0"
+description = "Algorithm visualization and local Python solution evaluation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "httpx>=0.27.0",
+  "ruff>=0.6.0",
+]
+
+[project.scripts]
+codetrace = "codetrace.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codetrace*"]
+
+[tool.setuptools.package-data]
+codetrace = ["problems/data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["BLE001", "PLW1509", "S110"]

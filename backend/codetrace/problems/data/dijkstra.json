@@ -1,0 +1,60 @@
+{
+  "id": "dijkstra",
+  "title": "Dijkstra Shortest Distances",
+  "description": "Given a weighted adjacency list where each edge is [neighbor, weight], return a dict of shortest distances from start to every reachable node. Unreachable nodes may be omitted or set to null.",
+  "function_name": "dijkstra",
+  "signature": "def dijkstra(graph: dict[str, list[list]], start: str) -> dict[str, float]",
+  "constraints": [
+    "Non-negative weights",
+    "Nodes are strings"
+  ],
+  "timeout_seconds": 2.0,
+  "expected_output_format": "Dict mapping node -> distance (numbers)",
+  "visible_tests": [
+    {
+      "id": "v1",
+      "description": "Small graph",
+      "args": [
+        {
+          "A": [["B", 1], ["C", 4]],
+          "B": [["C", 2], ["D", 5]],
+          "C": [["D", 1]],
+          "D": []
+        },
+        "A"
+      ],
+      "kwargs": {},
+      "expected": {"A": 0, "B": 1, "C": 3, "D": 4},
+      "is_edge_case": false,
+      "performance_weight": 0
+    }
+  ],
+  "hidden_tests": [
+    {
+      "id": "h1",
+      "description": "Single node",
+      "args": [{"A": []}, "A"],
+      "kwargs": {},
+      "expected": {"A": 0},
+      "is_edge_case": true,
+      "performance_weight": 0
+    },
+    {
+      "id": "h2",
+      "description": "Alternate path shorter",
+      "args": [
+        {
+          "A": [["B", 10], ["C", 1]],
+          "B": [["D", 1]],
+          "C": [["B", 1], ["D", 5]],
+          "D": []
+        },
+        "A"
+      ],
+      "kwargs": {},
+      "expected": {"A": 0, "B": 2, "C": 1, "D": 3},
+      "is_edge_case": false,
+      "performance_weight": 1
+    }
+  ]
+}

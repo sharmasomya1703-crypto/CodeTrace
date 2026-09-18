@@ -1,0 +1,62 @@
+{
+  "id": "two-sum",
+  "title": "Two Sum",
+  "description": "Return indices of two distinct numbers in `nums` that add up to `target`. Exactly one solution exists. Return them in ascending index order.",
+  "function_name": "two_sum",
+  "signature": "def two_sum(nums: list[int], target: int) -> list[int]",
+  "constraints": [
+    "2 <= len(nums) <= 10000",
+    "Exactly one valid pair"
+  ],
+  "timeout_seconds": 2.0,
+  "expected_output_format": "List of two indices [i, j] with i < j",
+  "visible_tests": [
+    {
+      "id": "v1",
+      "description": "Basic example",
+      "args": [[2, 7, 11, 15], 9],
+      "kwargs": {},
+      "expected": [0, 1],
+      "is_edge_case": false,
+      "performance_weight": 0
+    },
+    {
+      "id": "v2",
+      "description": "Pair at the end",
+      "args": [[3, 2, 4], 6],
+      "kwargs": {},
+      "expected": [1, 2],
+      "is_edge_case": false,
+      "performance_weight": 0
+    }
+  ],
+  "hidden_tests": [
+    {
+      "id": "h1",
+      "description": "Duplicates values",
+      "args": [[3, 3], 6],
+      "kwargs": {},
+      "expected": [0, 1],
+      "is_edge_case": true,
+      "performance_weight": 0
+    },
+    {
+      "id": "h2",
+      "description": "Negatives",
+      "args": [[-1, -2, -3, -4, -5], -8],
+      "kwargs": {},
+      "expected": [2, 4],
+      "is_edge_case": true,
+      "performance_weight": 0
+    },
+    {
+      "id": "h3",
+      "description": "Larger list",
+      "args": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 19],
+      "kwargs": {},
+      "expected": [8, 9],
+      "is_edge_case": false,
+      "performance_weight": 1
+    }
+  ]
+}
